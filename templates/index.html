@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <title>COVID-19</title>
+</head>
+<body>
+
+
+<div style="max-width:37.5rem; display: flex; flex-direction:column; justify-content:center; align-items: center;padding:1rem;margin: auto;border:0.125rem solid grey;border-radius:0.625rem;box-shadow: 0.313rem 0.313rem #DCDCDC">
+
+    <img style="max-width:7rem;" src="{{ url_for('static',filename='images/covid_logo.png') }}" alt="Logo-Covid">
+
+    <div>
+        <p style="font-size: 1.5rem;font-family: 'Oswald', sans-serif;">RESUMO DE INFORMAÇÕES</p>
+    </div>
+
+    <div>
+        <img style="max-width:100%;" src="{{ url_for('static',filename='images/geral.png') }}" alt="Informacoes Gerais">
+        <div style="font-size: 0.8rem;display:flex;flex-direction:row;justify-content:space-around">
+            <div style="display:flex;flex-direction:row;align-items:center">
+                <div style="width: 3rem; height: 1.5rem;background-color:darkgray"></div>
+                <p style="padding-left:0.5rem;font-family: 'Cormorant SC', serif;">De {{ de_anterior }} até {{ ate_anterior }}</p>
+            </div>
+            <div style="display:flex;flex-direction:row;align-items:center">
+                <div style="width: 3rem; height: 1.5rem;background-color:red"></div>
+                <p style="padding-left:0.5rem;font-family: 'Cormorant SC', serif;">De {{ de_atual }} até {{ ate_atual }}</p>
+            </div>
+        </div>
+        <p style="font-family: 'Inter', sans-serif;text-align: center;font-size:0.9rem">Atualizações sobre os números de casos, óbitos, pacientes hospitalizados e entubados na última semana. Nas barras de cor cinza é possível ver o apanhado geral do número de casos, óbitos, hospitalizações e óbitos da semana passada, enquanto que nas barras de cor vermelha pode-se analisar estes mesmos dados durante esta semana.Importante ressaltar que a doença pode ser prevenida por meio da utlização de máscaras, lavagem das mãos e evitando aglomerações.</p>
+    </div>
+
+    <div style="padding-top: 1rem">
+        <p style="font-size: 1.3rem;text-align: center;font-family: 'Oswald', sans-serif;">BAIRROS COM MAIOR ÍNDICE DE CONTAMINAÇÃO ATIVA</p>
+        <img style="max-width:100%;" src="{{ url_for('static',filename='images/bairros.png') }}" alt="Bairros mais contaminados">
+        <p style="font-family: 'Inter', sans-serif;text-align: center;font-size:0.9rem">No gráfico acima temos o ranking dos bairros que atualmente apresentam os maiores índices de contaminação ativa. Mantenha-se atento às nossas atualizações, e caso seu bairro esteja nesta listagem, reforçarmos a importante de redobrar os cuidados preventivos para diminuir o risco de possíveis contaminações.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:row;justify-content:center; align-items:center;padding-top: 2rem">
+        <div>
+            <p style="font-size: 1.5rem;text-align: center;font-family: 'Oswald', sans-serif;">ÓBITOS POR FAIXA ETÁRIA</p>
+            <p style="font-size: 0.8rem;font-family: 'Inter', sans-serif;text-align: center">Segundo dados coletados entre {{ inicio }} e {{ atual }}, a faixa etária com maior número de casos fatais é de {{ obitos_fe2.keys()[0] }}, e a faixa etária com menor número de letalidade é {{ obitos_fe2.keys()[-1] }}. Entretanto, todas os cidadãos devem continuar a fazer sua parte para impedir um aumento na circulação do vírus SARS-CoV-2 nos espaços públicos e privados.</p>
+        </div>
+        <img style="max-width:50%;" src="{{ url_for('static',filename='images/idades_obitos.png') }}" alt="Idades de maior risco">
+    </div>
+
+    <div style="padding-top: 2rem; padding-bottom:2rem">
+        <p style="font-family: 'Inter', sans-serif;text-align: center;font-size: 0.8rem">Abaixo temos a evolução do COVID-19 entre {{ inicio }} e {{ atual }}, de acordo com os casos reportados neste período. Contamos com a colaboração da população para que a curva de casos seja decrescente.</p>
+        <img style="max-width:100%;" src="{{ url_for('static',filename='images/registos_mes.png') }}" alt="Evolução dos casos">
+    </div>
+
+    <p style="font-family: 'Inter', sans-serif;text-align: center;font-size: 0.5rem;color:grey">Todos os dados foram reunidos pelo Toronto Public Health (TPH) e estão à domínio público, podendo ser encontrados em https://www.kaggle.com/datasets/divyansh22/toronto-covid19-cases?resource=download.</p>
+
+</div>
+
+</body>
+</html>
